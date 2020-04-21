@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+@keyframes aparecer {
+    0%{
+        opacity: 0;
+        transform: translateX(-20%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /*html{
     min-height: 100%;
     position:relative;
@@ -27,6 +38,7 @@ body{
 
 header{
     font-size: 1.5rem;
+    animation: 2s ease 0s 1 aparecer;
 }
 
 header,form{
@@ -42,7 +54,10 @@ form input, form button{
     font-size: 2rem;
     border: none;
 }
-
+form p{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
 form button{
     background-color: white;
     color: #a74d29;
@@ -151,3 +166,6 @@ select{
     color: #ff6f47;
 }
 
+footer{
+    text-align: right;
+}
