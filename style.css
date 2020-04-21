@@ -3,11 +3,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/*html{
+    min-height: 100%;
+    position:relative;
+  }*/   
 body{
     font-family: 'Open Sans', sans-serif;
-    background-image: linear-gradient(120deg, #b39a48, #e76a39);
+    /*background-image: linear-gradient(120deg, #b39a48, #e76a39);*/
+    background-image: url('./background3_image.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
     color: whitesmoke;
+    min-height: 100%;
+    z-index: 1;
+}
+
+.img_gradient{
+    background: #a19b9b44;
+    background-image: linear-gradient(0deg, #a19b9b44, #5025147a);
+    z-index: 2;
 }
 
 header{
@@ -66,7 +81,7 @@ form button:hover{
 }
 
 .complete-btn, .removed-btn {
-    background-color: #a74d29;
+    background-color: #ff5647;
     color: white;
     padding: 0.8rem;
     border: 0;
