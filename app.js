@@ -2,12 +2,13 @@
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
-
+const filterOption = document.querySelector('.filter-todo');
 // event listener area
 
 
 todoButton.addEventListener('click',addTodo);
 todoList.addEventListener('click', deleteCheck);
+filterOption.addEventListener('click',filterTodo);
 
 //functions area
 var count = 0;
@@ -49,6 +50,7 @@ function addTodo(event)
 
 function deleteCheck(event) //Se ejecuta cada vez que se hace click sobre un elemento 
 {
+    //delete element
     const item = event.target;
     if ( item.classList[0] === 'removed-btn'){
         const todo = item.parentElement;
@@ -65,7 +67,46 @@ function deleteCheck(event) //Se ejecuta cada vez que se hace click sobre un ele
         todo.classList.toggle("completed");
     }
     //console.log(item.classList[0]); // me muestra informacion sobre el elemento fue 
+}
 
 
+
+
+function filterTodo(event)
+{
+    const todos = todoList.childNodes; // lista con todos los todos generados
+    console.log(todos);
+
+    todos.forEach((todo)=>{
+
+        console.log(todo.classList);
+        switch(event.target.value) // saca el valor del selector escogido
+        {
+            case "all":
+                if(typeof(todo.classList) === "undefined")break;
+                todo.style.display = "flex";
+                break;
+            case "completed":
+                if(typeof(todo.classList) === "undefined"){break;}
+                else{
+                    if(todo.classList.contains('completed')){ // corrobora los todos que ya han sido completados
+                        todo.style.display = "flex";
+                    }else{
+                        todo.style.display = "none";
+                    }
+                    break;
+                }
+            case "uncompleted":
+                if(typeof(todo.classList) === "undefined")break;
+                if(!todo.classList.contains('completed')){ // corrobora los todos que ya han sido completados
+                    todo.style.display = "flex";
+                }else{
+                    todo.style.display = "none";
+                }
+                break;
+
+        }
+    });
+    console.log(todos);
 }
 
